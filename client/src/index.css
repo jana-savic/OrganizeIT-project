@@ -1,47 +1,113 @@
-body{
+body {
     margin: 0;
-    padding:0;
+    padding: 0;
     background-color: rgb(187, 222, 225);
-    display:flex;
+    display: flex;
     justify-content: center;
     font-family: 'Trebuchet MS', Arial, sans-serif;
+}
 
+.app {
+    background-color: rgb(227, 215, 235);
+    box-shadow: rgba(0, 0, 0, 0.05) 0 6px 24px, rgba(0, 0, 0, 0.08)0 0 0 1px;
+    padding: 10px;
+    width: 800px;
+    margin-top: 50px;
+    border-radius: 10px;
 
 }
-.app{
-background-color: rgb(227, 215, 235);
-box-shadow: rgba(0,0,0,0.05) 0 6px 24px, rgba(0,0,0,0.08)0 0 0 1px;
-padding: 10px;
-width: 800px;
-margin-top: 50px;
-border-radius: 10px;
 
+.button-container,
+.info-container {
+    display: flex;
+    align-items: center;
 }
-.button-container, .info-container{
-display:flex;
-align-items: center;
-}
-.button-container button{
-    margin:0 5px;
-    padding:5 px 10 px ;
+
+.button-container button {
+    margin: 0 5px;
+    padding: 5 px 10 px;
     font-size: 10 px;
     border-radius: 12px;
     background-color: transparent;
-  }
+}
 
-.list-header{
-
-    width:100%;
-    display:flex;
-    justify-content: space-between;
-    border-bottom: rgba(0 0 0 0.5) 1px solid;
-    
+.edit {
+    border: 1.5px solid rgb(141, 181, 145);
+    color: rgb(141, 181, 145);
+    background-color: transparent;
+    text-transform: uppercase;
 
 }
 
+.edit:hover {
+    background-color: rgb(182, 223, 186);
+}
+
+.edit:active {
+    color: rgb(255, 255, 255);
+    background-color: rgb(141, 181, 145);
+}
+
+.delete {
+    border: 1.5px solid rgb(255, 175, 163);
+    color: rgb(255, 175, 163);
+    text-transform: uppercase;
+}
+
+.delete:hover {
+    background-color: rgb(255, 201, 193);
+
+}
+
+.delete:active {
+    background-color: rgb(255, 201, 193);
+    color:rgb(255, 255, 255);
+}
+
+.create {
+    border: 1.5px solid rgb(108, 115, 148);
+    color: rgb(108, 115, 148);
+    text-transform: uppercase;
+}
+
+.create:hover {
+    background-color: rgb(131, 138, 172);
+}
+
+.create:active {
+    background-color: rgb(108, 115, 148);
+    color:rgb(255, 255, 255);
+}
+
+.signout {
+    border: 1.5px solid rgb(255, 175, 163);
+    background-color: rgb(255, 175, 163) !important;
+    color: rgb(175, 94, 94);
+}
+
+.signout:hover{
+    background-color: rgb(175, 94, 94) !important;
+    border:  1.5px solid rgb(175, 94, 94);
+}
+
+.signout:active{
+    background-color: rgb(175, 94, 94) !important;
+    border:  1.5px solid rgb(175, 81, 81) !important;
+    color: rgb(255, 255, 255);
+}
+
+
+.list-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: rgba(0 0 0 0.5) 1px solid;
+}
+
+
 /*List-Items*/
 
-.list-item{
+.list-item {
     width: 100%;
     margin: 10px 0;
     padding-left: 10px;
@@ -51,3 +117,16 @@ align-items: center;
     justify-content: space-between;
 }
 
+/*skinuto sa svgIcons*/
+
+.tick {
+    padding: 10px;
+}
+
+.tick path {
+    fill: none;
+    stroke: #000;
+    stroke-miterlimit: 10;
+    stroke-width: 32px;
+
+}
