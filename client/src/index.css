@@ -17,7 +17,7 @@ margin-top: 50px;
 border-radius: 10px;
 
 }
-.button-container{
+.button-container, .info-container{
 display:flex;
 align-items: center;
 }
@@ -38,3 +38,16 @@ align-items: center;
     
 
 }
+
+/*List-Items*/
+
+.list-item{
+    width: 100%;
+    margin: 10px 0;
+    padding-left: 10px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.08) 0 0 0 1px;
+    display: flex;
+    justify-content: space-between;
+}
+

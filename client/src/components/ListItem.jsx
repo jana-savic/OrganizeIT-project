@@ -1,9 +1,25 @@
-const ListItem= () => {
-    return (
-      <div className="list-item">
-        
+import ProgressBar from './ProgressBar';
+import TickIcon from './TickIcon';
+
+const ListItem = ({ task }) => {
+
+  return (
+    <li className="list-item">
+
+
+      <div className="info-containter">
+        <TickIcon />
+        <p className="task-title">{task.title}</p>
+        <ProgressBar />
       </div>
-    );
-  }
-  
-  export default ListItem
+
+      <div className="button-container">
+        <button className = "edit">EDIT</button>
+        <button className =  "delete">DELETE</button>
+      </div>
+
+    </li>
+  );
+}
+
+export default ListItem
