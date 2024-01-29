@@ -21,7 +21,12 @@ const App = () => {
     }
   }
 
-  useEffect(() => getData, []) //prazna zagrada je zato sto zelimo da se samo jednom izvrsi
+
+  useEffect(() => {
+    if (authToken){
+      getData()
+    }
+  }, [])
 
   console.log(tasks)
 
