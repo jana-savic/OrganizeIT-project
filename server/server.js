@@ -5,6 +5,8 @@ const { v4: uuidv4 } = require('uuid')
 const cors = require('cors')
 const app = express()
 const pool = require('./db')
+const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
 
 /* app.get('/', (req,res) => {
     res.send('hellooo!')
@@ -63,5 +65,33 @@ app.delete('/todos/:id', async (req, res) => {
     }
 })
 
+//signup post jer upisujemo 
+app.post( '/signup',async (req, res) => {
+    const{ email,password } = req.body
+   const salt= bcrypt.genSaltSync(10)
+  const hashedPassword= bcrypt.hashSync(password, salt)
+
+    try{
+  const signUp=await pool.query(`INSERT INTO users (email,hashed_password) VALUES ($1,$2)`, [email,hashedPassword])
+  const token= jwt.sign({email}, 'secret', {expiresIn: '1hr'})
+  res.json({email,token})
+  
+}catch (err) {
+        console.error(err)
+/*         if(err){
+            res.json({detail: err.detail})
+        } */
+    }
+})
+
+//login
+app.post( '/login',async (req, res) =>{
+    const{ email,password }= req.body
+    try{
+
+    }catch (err) {
+        console.error(err)
+    }
+})
 app.listen(PORT, () => console.log('Server running on PORT ' + PORT))
 
