@@ -1,11 +1,11 @@
 import { useState } from 'react'
 
-const Modal = ({ mode, setShowModal, task}) => {
+const Modal = ({ mode, setShowModal, getData, task}) => {
   const editMode = mode === 'edit' ? true : false 
 
   const [data, setData] = useState({
-    user_email: editMode ? task.user_email : 'iteh@gmail.com',
-    title: editMode ? task.title : 'null',
+    user_email: editMode ? task.user_email : 'iva@gmail.com',
+    title: editMode ? task.title : null,
     progress: editMode ? task.progress : 0,
     date: editMode ? "" : new Date()
   })
@@ -18,7 +18,14 @@ const Modal = ({ mode, setShowModal, task}) => {
         headers: {'Content-Type' : 'application/json'},
         body: JSON.stringify(data)
       })
-      console.log(response)
+
+     /* Inspect - nakon submit-a status response-a je 200 */
+     if(response.status === 200){
+        console.log('WORKED')
+        setShowModal(false)
+        getData()
+     }
+
     }catch(err){
       console.error(err)
     }
