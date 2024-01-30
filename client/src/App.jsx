@@ -3,15 +3,15 @@ import ListHeader from "./components/ListHeader";
 import { useEffect, useState } from 'react';
 import ListItem from './components/ListItem';
 import Auth from './components/Auth';
+import { useCookies } from "react-cookie";
 
 const App = () => {
-  const userEmail = 'iva@gmail.com'
+  const [cookies, setCookie, removeCookie] = useCookies(null)
+  const authToken = cookies.AuthToken 
+  const userEmail = cookies.Email
   const [tasks, setTasks] = useState(null)
 
-  const authToken = false
-
   const getData = async () => {
-
     try {
       const response = await fetch(`http://localhost:8002/todos/${userEmail}`)
       const json = await response.json()
@@ -23,7 +23,7 @@ const App = () => {
 
 
   useEffect(() => {
-    if (authToken){
+    if (authToken) {
       getData()
     }
   }, [])
@@ -36,7 +36,7 @@ const App = () => {
 
   return (
     <div className="app">
-      {!authToken && <Auth />} 
+      {!authToken && <Auth />}
       {authToken &&
         <>
           <ListHeader listName={'TO DO :)'} getData={getData} />
