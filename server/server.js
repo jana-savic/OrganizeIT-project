@@ -1,6 +1,6 @@
 const PORT = 8002
 
-const express = require("express")
+const express = require('express')
 const { v4: uuidv4 } = require('uuid')
 const cors = require('cors')
 const app = express()
@@ -28,6 +28,19 @@ app.get('/todos/:userEmail', async (req, res) => {
     }
 })
 
+//get user - rola
+app.get('/users/:userEmail', async (req, res) => {
+    const { userEmail } = req.params
+    try {
+        const user = await pool.query('SELECT * FROM users WHERE email = $1', [userEmail])
+        res.json(user.rows)
+
+    } catch (err) {
+        console.error(err)
+
+    }
+})
+
 //create a new to-do
 app.post('/todos', async (req, res) => {
 
@@ -41,6 +54,7 @@ app.post('/todos', async (req, res) => {
         console.error(err)
     }
 })
+
 //edit todo
 app.put('/todos/:id', async (req, res) => {
     const { id } = req.params
@@ -72,36 +86,38 @@ app.post('/signup', async (req, res) => {
     const salt = bcrypt.genSaltSync(10)
     const hashedPassword = bcrypt.hashSync(password, salt)
     try {
-        const signUp = await pool.query(`INSERT INTO users (email,hashed_password) VALUES ($1,$2)`, [email, hashedPassword])
+        //dodata rola - svi koji se sign-upuju su useri po defaultu
+        const signUp = await pool.query(`INSERT INTO users (email,hashed_password, role) VALUES ($1,$2, 'USER')`, [email, hashedPassword])
         const token = jwt.sign({ email }, 'secret', { expiresIn: '1hr' })
-        res.json({ email, token })
+        //kada se registruje, po defaultu je user tako da saljemo kao string
+        res.json({ email, token, role: 'USER'}) 
 
     } catch (err) {
         console.error(err)
-        if(err){
-            res.json({detail: err.detail})
+        if (err) {
+            res.json({ detail: err.detail })
         }
     }
 })
 
 //login
-app.post( '/login',async (req, res) =>{
-    const{ email,password }= req.body
-    try{
-      const users=await pool.query('SELECT * FROM users WHERE email=$1', [email])
+app.post('/login', async (req, res) => {
+    const { email, password } = req.body
+    try {
+        const users = await pool.query('SELECT * FROM users WHERE email=$1', [email])
 
-      if(!users.rows.length) return res.json({ detail: 'User does not exist!'} )
+        if (!users.rows.length) return res.json({ detail: 'User does not exist!' })
 
-      //uporedjujemo uneti pass sa pass-om iz baze koji je hashovan
-      const success= await bcrypt.compare(password, users.rows[0].hashed_password)
-      const token= jwt.sign({email}, 'secret', {expiresIn: '1hr'})
-      if(success){
-        //ako se sifre poklapaju, vraca nam tog usera 
-        res.json({ 'email': users.rows[0].email, token})
-      } else{
-        res.json({ detail: 'Login failed'})
-      }
-    }catch (err) {
+        //uporedjujemo uneti pass sa pass-om iz baze koji je hashovan
+        const success = await bcrypt.compare(password, users.rows[0].hashed_password)
+        const token = jwt.sign({ email }, 'secret', { expiresIn: '1hr' })
+        if (success) {
+            //ako se sifre poklapaju, vraca nam tog usera 
+            res.json({ 'email': users.rows[0].email, token, 'role': users.rows[0].role })
+        } else {
+            res.json({ detail: 'Login failed' })
+        }
+    } catch (err) {
         console.error(err)
     }
 })

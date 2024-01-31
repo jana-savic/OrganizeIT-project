@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useCookies } from "react-cookie";
 
-const Modal = ({ mode, setShowModal, getData , task }) => {
+const Modal = ({ mode, setShowModal, getData, task }) => {
   const [cookies, setCookie, removeCookie] = useCookies(null)
   const editMode = mode === 'edit' ? true : false
   const [data, setData] = useState({
@@ -51,13 +51,13 @@ const Modal = ({ mode, setShowModal, getData , task }) => {
         console.log('YEY WORKED')
         setShowModal(false)
 
-       getData()
-        
+        getData()
+
       }
     } catch (err) {
       console.error(err);
-    }  
-    
+    }
+
   }
 
   const handleChange = (e) => {
