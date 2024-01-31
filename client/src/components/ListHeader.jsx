@@ -12,7 +12,8 @@ const ListHeader = ({ listName, getData }) => {
     removeCookie('Email')
     removeCookie('AuthToken')
     window.location.reload()
-  }
+  };
+
   return (
     <div className="list-header">
       <h1>{listName}</h1>
