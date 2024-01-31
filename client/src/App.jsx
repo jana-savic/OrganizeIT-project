@@ -7,7 +7,7 @@ import { useCookies } from "react-cookie";
 
 const App = () => {
   const [cookies, setCookie, removeCookie] = useCookies(null)
-  const authToken = cookies.AuthToken 
+  const authToken = cookies.AuthToken
   const userEmail = cookies.Email
   const [tasks, setTasks] = useState(null)
 
@@ -37,6 +37,7 @@ const App = () => {
   return (
     <div className="app">
       {!authToken && <Auth />}
+
       {authToken &&
         <>
           <ListHeader listName={'TO DO :)'} getData={getData} />

@@ -92,9 +92,11 @@ app.post( '/login',async (req, res) =>{
 
       if(!users.rows.length) return res.json({ detail: 'User does not exist!'} )
 
+      //uporedjujemo uneti pass sa pass-om iz baze koji je hashovan
       const success= await bcrypt.compare(password, users.rows[0].hashed_password)
       const token= jwt.sign({email}, 'secret', {expiresIn: '1hr'})
       if(success){
+        //ako se sifre poklapaju, vraca nam tog usera 
         res.json({ 'email': users.rows[0].email, token})
       } else{
         res.json({ detail: 'Login failed'})
