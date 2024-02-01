@@ -4,6 +4,7 @@ import ListItem from '../components/ListItem';
 import { useEffect, useState } from 'react';
 import { useCookies } from "react-cookie";
 import { Admin } from '../components/Admin';
+import User from '../components/User';
 
 
 const Main = () => {
@@ -48,19 +49,21 @@ const Main = () => {
 
     const sortedTasks = tasks?.sort((a, b) => new Date(a.date) - new Date(b.date))
 
+//<ListHeader listName={'TO DO :)'} getData={getData} />
+    /* <p className="user-email">Welcome back {userEmail}</p>
+                    {sortedTasks?.map((task) => <ListItem key={task.id} task={task} />)} */
+
     return (
         <div className="app">
             
             <p>{userRole}</p>
-            <ListHeader listName={'TO DO :)'} getData={getData} />
+         
             {userRole === "USER" ?
-                <>
-                    <p className="user-email">Welcome back {userEmail}</p>
-                    {sortedTasks?.map((task) => <ListItem key={task.id} task={task} />)}
-                </> : <Admin />
+                <User />  : <Admin />
             }
         </div>
     )
 }
 
 export default Main
+
