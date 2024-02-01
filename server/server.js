@@ -41,6 +41,20 @@ app.get('/users/:userEmail', async (req, res) => {
     }
 })
 
+// get all users from db
+app.get( '/users' , async (req, res) => {
+    const { userRole } = req.params
+    try {
+        const allUsers = await pool.query('SELECT * FROM users WHERE role =$1', ['USER'])
+        res.json(allUsers.rows)
+        
+
+    } catch (err) {
+        console.error(err)
+
+    }
+})
+
 //create a new to-do
 app.post('/todos', async (req, res) => {
 

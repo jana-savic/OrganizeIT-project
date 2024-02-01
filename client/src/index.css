@@ -19,7 +19,7 @@ body {
 
 .button-container {
     display: flex;
-    align-items: center;
+  align-items: center;
 }
 
 .info-container {
@@ -247,3 +247,4 @@ input {
     width: 250px;
 
 }
+
