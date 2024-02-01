@@ -3,7 +3,7 @@ import { useCookies } from 'react-cookie';
 import { useNavigate } from 'react-router-dom';
 
 const Auth = () => {
-  const [setCookie] = useCookies(null)
+  const [cookie, setCookie] = useCookies(null)
   const [isLogIn, setIsLogIn] = useState(true)
   const [email, setEmail] = useState(null)
   const [password, setPassword] = useState(null)
