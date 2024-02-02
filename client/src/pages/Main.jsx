@@ -6,6 +6,7 @@ import { useCookies } from "react-cookie";
 import { Admin } from '../components/Admin';
 import User from '../components/User';
 import Footer from '../components/Footer';
+import Header from '../components/Header';
 
 
 const Main = () => {
@@ -57,11 +58,12 @@ const Main = () => {
     return (
         <div className="app">
             
-            <p>{userRole}</p>
+           
          
             {userRole === "USER" ?
                 <User />  : <Admin />
             }
+            <Header />
              <Footer />
         </div>
     )

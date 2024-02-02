@@ -41,10 +41,7 @@ useEffect(() => {
 
     return (
         <div>
-  <div className="button-container">
-       
-        <button className="signout" onClick={signOut}>SIGN OUT</button>
-      </div>
+ 
       <h1>User List</h1>
       <ul>
         {users.map((user)=> (

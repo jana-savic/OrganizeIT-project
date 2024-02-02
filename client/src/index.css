@@ -12,7 +12,8 @@ body {
     box-shadow: rgba(0, 0, 0, 0.05) 0 6px 24px, rgba(0, 0, 0, 0.08)0 0 0 1px;
     padding: 10px;
     width: 800px;
-    margin-top: 50px;
+    margin-top: 70px;
+    margin-bottom: 70px;
     border-radius: 10px;
 
 }
@@ -48,6 +49,26 @@ body {
    
     
 }
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 60px;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+ justify-content: space-around;
+ align-items: center;
+}
+
+.header h1 {
+    font-size: 20px; 
+    margin: 0;
+
+  }
 
 .footer-container {
     display:flex;

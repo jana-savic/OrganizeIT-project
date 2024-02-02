@@ -8,6 +8,7 @@ const Footer = () => {
     <div>Phone: +38161456789</div>
     <div>Company: OrganizeIT</div>
     </div>
+    
   </footer>
   )
 }
