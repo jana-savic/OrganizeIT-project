@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Footer from '../components/Footer';
+import { Link } from 'react-router-dom';
 
 function Visitor() {
   const [quote, setQuote] = useState({ text: '', author: '' });
@@ -31,6 +32,11 @@ function Visitor() {
 
   return (
     <div>
+      <Link to="/auth">
+        <div className="login-signup-container">
+        <button className="login-signup">Sign Up/Log In</button>
+        </div>
+      </Link>
       <h1>Random Quote:</h1>
       {loading ? (
         <p>Loading...</p>

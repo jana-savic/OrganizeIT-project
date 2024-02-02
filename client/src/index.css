@@ -123,6 +123,31 @@ body {
     border: 1.5px solid rgb(175, 81, 81) !important;
     color: rgb(255, 255, 255);
 }
+/* Visitor dugme*/
+.login-signup-container {
+    position:fixed;
+    top:30px;
+    right:40px;
+}
+.login-signup {
+    font-size: 10 px;
+    border-radius: 12px;
+    background-color: transparent;
+    border: 1.5px solid rgb(108, 115, 148);
+    color: rgb(108, 115, 148);
+    text-transform: uppercase;
+}
+
+.login-signup:hover{
+    background-color: rgb(131, 138, 172);
+}
+
+
+.login-signup:active{
+    background-color: rgb(108, 115, 148);
+    color: rgb(255, 255, 255);
+}
+
 
 input {
     margin: 11px 0;
