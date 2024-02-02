@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { useCookies } from "react-cookie";
 import { Admin } from '../components/Admin';
 import User from '../components/User';
+import Footer from '../components/Footer';
 
 
 const Main = () => {
@@ -61,6 +62,7 @@ const Main = () => {
             {userRole === "USER" ?
                 <User />  : <Admin />
             }
+             <Footer />
         </div>
     )
 }

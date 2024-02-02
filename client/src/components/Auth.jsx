@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useCookies } from 'react-cookie';
 import { useNavigate } from 'react-router-dom';
 
+
 const Auth = () => {
   const [cookie, setCookie] = useCookies(null)
   const [isLogIn, setIsLogIn] = useState(true)
@@ -81,6 +82,7 @@ const Auth = () => {
 
         </div>
       </div>
+     
     </div>
   );
 }

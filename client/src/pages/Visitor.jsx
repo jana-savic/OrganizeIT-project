@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Footer from '../components/Footer';
 
 function Visitor() {
   const [quote, setQuote] = useState({ text: '', author: '' });
@@ -41,6 +42,7 @@ function Visitor() {
           <p>- {quote.author}</p>
         </>
       )}
+       <Footer />
     </div>
   );
 }
