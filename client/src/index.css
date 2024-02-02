@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: rgb(187, 222, 225);
+    background-color: rgb(232, 230, 242);
     display: flex;
     justify-content: center;
     font-family: 'Trebuchet MS', Arial, sans-serif;
@@ -12,7 +12,7 @@ body {
     box-shadow: rgba(0, 0, 0, 0.05) 0 6px 24px, rgba(0, 0, 0, 0.08)0 0 0 1px;
     padding: 10px;
     width: 800px;
-    margin-top: 70px;
+    margin-top: 80px;
     margin-bottom: 70px;
     border-radius: 10px;
 
@@ -43,7 +43,7 @@ body {
     bottom:0 ;
     left:0;
     width: 100%;
-    background-color: #333;
+    background-color: #48466b;
     color: white;
     padding: 20px;
    
@@ -55,7 +55,7 @@ body {
   left: 0;
   height: 60px;
   width: 100%;
-  background-color: #333;
+  background-color: #48466b;
   color: white;
   padding: 20px;
   box-sizing: border-box;
@@ -81,35 +81,37 @@ body {
   }
 
 .edit {
-    border: 1.5px solid rgb(141, 181, 145);
-    color: rgb(141, 181, 145);
+    border: 1.5px solid rgb(233, 192, 89);
+    color: rgb(233, 192, 89);
     background-color: transparent;
     text-transform: uppercase;
 
 }
 
 .edit:hover {
-    background-color: rgb(182, 223, 186);
+    background-color: rgb(249, 212, 139);
+    color: white;
 }
 
 .edit:active {
     color: rgb(255, 255, 255);
-    background-color: rgb(141, 181, 145);
+    background-color: rgb(233, 149, 4);
 }
 
 .delete {
-    border: 1.5px solid rgb(255, 175, 163);
-    color: rgb(255, 175, 163);
+    border: 1.5px solid rgb(243, 152, 138);
+    color: rgb(243, 152, 138);
     text-transform: uppercase;
 }
 
 .delete:hover {
-    background-color: rgb(255, 201, 193);
+    background-color: rgb(252, 208, 201);
+    color:white;
 
 }
 
 .delete:active {
-    background-color: rgb(255, 201, 193);
+    background-color: rgb(228, 67, 42);
     color: rgb(255, 255, 255);
 }
 
@@ -121,6 +123,7 @@ body {
 
 .create:hover {
     background-color: rgb(131, 138, 172);
+    color:white;
 }
 
 .create:active {
@@ -129,19 +132,19 @@ body {
 }
 
 .signout {
-    border: 1.5px solid rgb(255, 175, 163);
-    background-color: rgb(255, 175, 163) !important;
-    color: rgb(175, 94, 94);
+    border: 1.5px solid rgb(255, 255, 255);
+    background-color: rgb(168, 164, 226) !important;
+    color: rgb(255, 255, 255);
 }
 
 .signout:hover {
-    background-color: rgb(175, 94, 94) !important;
-    border: 1.5px solid rgb(175, 94, 94);
+    background-color: rgb(87, 95, 193) !important;
+    border: 1.5px solid rgb(255, 255, 255);
 }
 
 .signout:active {
-    background-color: rgb(175, 94, 94) !important;
-    border: 1.5px solid rgb(175, 81, 81) !important;
+    background-color: rgb(38, 10, 160) !important;
+    border: 1.5px solid rgb(255, 255, 255) !important;
     color: rgb(255, 255, 255);
 }
 /* Visitor dugme*/
@@ -169,6 +172,15 @@ body {
     color: rgb(255, 255, 255);
 }
 
+/* Visitor text*/
+.quote-text p {
+    color: rgb(89, 5, 99);
+}
+
+
+.visitor h1 {
+color: rgb(53, 2, 62);
+}
 
 input {
     margin: 11px 0;
@@ -315,4 +327,6 @@ input {
     width: 250px;
 
 }
+
+/* sredjivanje visitor stranice*/
 

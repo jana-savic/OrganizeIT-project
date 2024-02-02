@@ -31,22 +31,23 @@ function Visitor() {
 
 
   return (
-    <div>
+    <div className="visitor">
       <Link to="/auth">
         <div className="login-signup-container">
         <button className="login-signup">Sign Up/Log In</button>
         </div>
       </Link>
-      <h1>Random Quote:</h1>
+      <h1>Motivational quote for you </h1>
       {loading ? (
         <p>Loading...</p>
       ) : error ? (
         <p>{error}</p>
       ) : (
-        <>
+
+        <div className="quote-text">
           <p>{quote.text}</p>
           <p>- {quote.author}</p>
-        </>
+        </div>
       )}
        <Footer />
     </div>
