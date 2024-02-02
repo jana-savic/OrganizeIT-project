@@ -12,7 +12,7 @@ const ListItem = ({ task, getData }) => {
         method: 'DELETE'
       }) // napravljen objekat za slanje methode delete  i ne treba da handle-ujemo json jer ga nigde ne saljemo
       if (response.status === 200) {
-        getData()
+        getData();
       }
     } catch (err) {
       console.error(err)
