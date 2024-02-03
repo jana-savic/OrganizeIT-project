@@ -10,6 +10,7 @@ const Auth = () => {
   const [password, setPassword] = useState(null)
   const [confirmPassword, setConfirmPassword] = useState(null)
   const [error, setError] = useState(null)
+ 
   const navigate = useNavigate()
 
   const viewLogIn = (status) => {
@@ -43,6 +44,12 @@ const Auth = () => {
     //kada posaljemo email i password u sign up modu
     //i nama vraca kao data
   }
+
+  const handleLinkClick = () => {
+    // Navigate to the desired page when the link input is clicked
+    window.location.href = '/forgotten';
+  };
+
   /*u slucaju sign-up opcije imamo dodatni input "confirm password"*/
   return (
     <div className="app">
@@ -67,6 +74,13 @@ const Auth = () => {
             <input type="submit" className="create"
               onClick={(e) => handleSubmit(e, isLogIn ? 'login' : 'signup')} />
             {error && <p>{error}</p>}
+
+            { isLogIn && <input type="reset" value="Change password" className="forgotten"
+              onClick={ handleLinkClick }
+            />}
+           
+                
+
           </form>
           <div className="auth-options">
             <button

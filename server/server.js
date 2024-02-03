@@ -138,5 +138,35 @@ app.post('/login', async (req, res) => {
         console.error(err)
     }
 })
+
+//Change password
+app.post('/users/:email', async (req, res) => {
+    const email= req.params.email;
+    const { newPassword } = req.body;
+  
+    try {
+      // Check if the token is valid
+      const user = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
+  
+      if (!user.rows.length) {
+        return res.status(400).json({ error: 'Invalid email' });
+      }
+      console.log(newPassword + "1. put");
+      // Update the user's password and clear the reset token
+      const salt = bcrypt.genSaltSync(10);
+      const hashedPassword = bcrypt.hashSync(newPassword, salt);
+  
+      await pool.query('UPDATE users SET hashed_password = $1 WHERE email= $2', [hashedPassword, email]);
+  
+      console.log(newPassword);
+      return res.json({ message: 'Password reset successfully' });
+
+    } catch (error) {
+      console.error('Error completing password reset:', error);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  });
+
+
 app.listen(PORT, () => console.log('Server running on PORT ' + PORT))
 
