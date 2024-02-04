@@ -1,0 +1,2 @@
+INSERT INTO public.users(email, hashed_password, role) VALUES ('iva@gmail.com', '$2b$10$FYE3Di.pOuZtTw9fGNJJ5OyANZGU8tJBcMNNmIqH3dAKGME6276aK', 'ADMIN');
+INSERT INTO public.users(email, hashed_password, role) VALUES ('zoki@gmail.com', '$2b$10$ZxOWU6.sim4xSOvC/aYoneGalgb8akfBg5G.YotxFDYd3wRm0p4lS', 'USER');
