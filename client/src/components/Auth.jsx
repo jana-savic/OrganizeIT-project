@@ -10,7 +10,7 @@ const Auth = () => {
   const [password, setPassword] = useState(null)
   const [confirmPassword, setConfirmPassword] = useState(null)
   const [error, setError] = useState(null)
- 
+
   const navigate = useNavigate()
 
   const viewLogIn = (status) => {
@@ -75,11 +75,10 @@ const Auth = () => {
               onClick={(e) => handleSubmit(e, isLogIn ? 'login' : 'signup')} />
             {error && <p>{error}</p>}
 
-            { isLogIn && <input type="reset" value="Change password" className="forgotten"
-              onClick={ handleLinkClick }
+            {isLogIn && <input type="reset" value="Forgot password?" className="forgotten"
+              onClick={handleLinkClick}
             />}
-           
-                
+
 
           </form>
           <div className="auth-options">
@@ -96,7 +95,7 @@ const Auth = () => {
 
         </div>
       </div>
-     
+
     </div>
   );
 }

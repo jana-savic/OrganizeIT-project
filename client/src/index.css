@@ -118,6 +118,7 @@ body {
 }
 
 .create {
+    padding: 5px 10px;
     border: 1.5px solid rgb(108, 115, 148);
     color: rgb(108, 115, 148);
     text-transform: uppercase;
@@ -134,24 +135,24 @@ body {
 }
 
 .forgotten {
-    border: 1.5px solid rgb(244, 126, 105);
-    color: rgb(244, 126, 105);
-    text-transform: uppercase;
+    border: none;
+    color: rgb(219, 149, 136);
+    background-color: transparent;
+    text-decoration: underline;
 }
 
 .forgotten:hover {
-    background-color: rgb(224, 189, 189);
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 .forgotten:active {
-    background-color: rgb(225, 175, 175);
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
 }
 
 
 
 .signout {
+    padding: 5px 10px;
     border: 1.5px solid rgb(255, 255, 255);
     background-color: rgb(168, 164, 226) !important;
     color: rgb(255, 255, 255);
@@ -176,6 +177,7 @@ body {
 }
 
 .login-signup {
+    padding: 5px 10px;
     font-size: 10 px;
     border-radius: 12px;
     background-color: transparent;
@@ -199,9 +201,25 @@ body {
     color: rgb(89, 5, 99);
 }
 
+.quote-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 
 .visitor h1 {
     color: rgb(53, 2, 62);
+}
+
+.visitor {
+    align-items: center;
+    margin-top: 50%;
+}
+
+.get-quote-container {
+    margin-top: 30px;
+    margin-left: 130px;
 }
 
 input {
@@ -363,9 +381,23 @@ input {
 
 }
 
+.reset-form {
+    border: 1px solid rgb(135, 135, 135);
+    border-radius: 8px;
+    padding: 30px;
+    background-color: rgb(245, 233, 233) ;
+}
+
+.forgotten-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 
 /* Forgotten password stranica*/
 .reset-password {
+    padding: 5px 10px;
     margin-top: 20px;
     font-size: 10 px;
     border-radius: 12px;

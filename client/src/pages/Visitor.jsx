@@ -34,7 +34,7 @@ function Visitor() {
     <div className="visitor">
       <Link to="/auth">
         <div className="login-signup-container">
-        <button className="login-signup">Sign Up/Log In</button>
+        <button className="login-signup">Sign Up / Log In</button>
         </div>
       </Link>
       <h1>Motivational quote for you </h1>
@@ -49,6 +49,9 @@ function Visitor() {
           <p>- {quote.author}</p>
         </div>
       )}
+      <div className='get-quote-container'>
+        <button className='login-signup' onClick={fetchRandomQuote}>Get new quote</button>
+      </div>
        <Footer />
     </div>
   );

@@ -50,33 +50,32 @@ const PasswordReset = () => {
   };
 
   return (
-    <div>
-
-        <div className='forgotten-top-container'>
-      <h2>Password Reset</h2>
-      <p>{message}</p>
-      <Link to="/auth">
-        <div className="login-signup-container">
-        <button className="login-signup">Sign Up/Log In</button>
-        </div>
-      </Link>
+    <div className="forgotten-main">
+      <div className='forgotten-top-container'>
+        <h2>Password Reset</h2>
+        <p>{message}</p>
+        <Link to="/auth">
+          <div className="login-signup-container">
+            <button className="login-signup">Sign Up/Log In</button>
+          </div>
+        </Link>
       </div>
 
-<div className="reset-form">
-      <label>Email:</label>
-      <br />
-      <input type="email" value={email} onChange={handleEmailChange}/>
-      <br />
-      <label>New Password:</label>
-      <br />
-      <input type="password" value={newPassword} onChange={handleNewPasswordChange} />
-      <br />
-      <label>Confirm Password:</label>
-      <br />
-      <input type="password" value={confirmPassword} onChange={handleConfirmPasswordChange} />
-      <br />
-      <button className="reset-password" onClick={handleResetPassword}>Reset Password</button>
-      <br />
+      <div className="reset-form">
+        <label>Email:</label>
+        <br />
+        <input type="email" value={email} onChange={handleEmailChange} />
+        <br />
+        <label>New Password:</label>
+        <br />
+        <input type="password" value={newPassword} onChange={handleNewPasswordChange} />
+        <br />
+        <label>Confirm Password:</label>
+        <br />
+        <input type="password" value={confirmPassword} onChange={handleConfirmPasswordChange} />
+        <br />
+        <button className="reset-password" onClick={handleResetPassword}>Reset Password</button>
+        <br />
       </div>
 
     </div>
