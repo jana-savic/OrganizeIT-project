@@ -58,11 +58,11 @@ app.get( '/users' , async (req, res) => {
 //create a new to-do
 app.post('/todos', async (req, res) => {
 
-    const { user_email, title, progress, date } = req.body
-    console.log(user_email, title, progress, date)
+    const { user_email, title, progress, date, category } = req.body
+    console.log(user_email, title, progress, date, category)
     const id = uuidv4()
     try {
-        const newToDo = await pool.query(`INSERT INTO todos(id, user_email, title, progress, date) VALUES ($1, $2, $3, $4, $5)`, [id, user_email, title, progress, date])
+        const newToDo = await pool.query(`INSERT INTO todos(id, user_email, title, progress, date, category) VALUES ($1, $2, $3, $4, $5, $6)`, [id, user_email, title, progress, date, category])
         res.json(newToDo)
     } catch (err) {
         console.error(err)
@@ -72,9 +72,9 @@ app.post('/todos', async (req, res) => {
 //edit todo
 app.put('/todos/:id', async (req, res) => {
     const { id } = req.params
-    const { user_email, title, progress, date } = req.body
+    const { user_email, title, progress, date, category } = req.body
     try {
- await pool.query('UPDATE todos SET user_email =$1, title =$2, progress =$3, date =$4 WHERE id = $5;', [user_email, title, progress, date, id])
+ await pool.query('UPDATE todos SET user_email =$1, title =$2, progress =$3, date =$4, category = $5 WHERE id = $6;', [user_email, title, progress, date, category, id])
        
  const editToDo = await pool.query('SELECT * FROM todos WHERE id=$1' , [id])
 

@@ -20,7 +20,7 @@ body {
 
 .button-container {
     display: flex;
-  align-items: center;
+    align-items: center;
 }
 
 .info-container {
@@ -39,46 +39,48 @@ body {
 }
 
 .footer {
-    position:fixed;
-    bottom:0 ;
-    left:0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
     width: 100%;
     background-color: #48466b;
     color: white;
     padding: 20px;
-   
-    
+
+
 }
+
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 60px;
-  width: 100%;
-  background-color: #48466b;
-  color: white;
-  padding: 20px;
-  box-sizing: border-box;
-  display: flex;
- justify-content: space-around;
- align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 60px;
+    width: 100%;
+    background-color: #48466b;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .header h1 {
-    font-size: 20px; 
+    font-size: 20px;
     margin: 0;
 
-  }
+}
 
 .footer-container {
-    display:flex;
+    display: flex;
     justify-content: space-around;
     align-items: center;
 
 }
-.footer-container > div {
+
+.footer-container>div {
     margin: 0 10px;
-  }
+}
 
 .edit {
     border: 1.5px solid rgb(233, 192, 89);
@@ -106,7 +108,7 @@ body {
 
 .delete:hover {
     background-color: rgb(252, 208, 201);
-    color:white;
+    color: white;
 
 }
 
@@ -123,7 +125,7 @@ body {
 
 .create:hover {
     background-color: rgb(131, 138, 172);
-    color:white;
+    color: white;
 }
 
 .create:active {
@@ -139,7 +141,7 @@ body {
 
 .forgotten:hover {
     background-color: rgb(224, 189, 189);
-    color:white;
+    color: white;
 }
 
 .forgotten:active {
@@ -165,12 +167,14 @@ body {
     border: 1.5px solid rgb(255, 255, 255) !important;
     color: rgb(255, 255, 255);
 }
+
 /* Visitor dugme*/
 .login-signup-container {
-    position:fixed;
-    top:30px;
-    right:100px;
+    position: fixed;
+    top: 30px;
+    right: 100px;
 }
+
 .login-signup {
     font-size: 10 px;
     border-radius: 12px;
@@ -180,12 +184,12 @@ body {
     text-transform: uppercase;
 }
 
-.login-signup:hover{
+.login-signup:hover {
     background-color: rgb(131, 138, 172);
 }
 
 
-.login-signup:active{
+.login-signup:active {
     background-color: rgb(108, 115, 148);
     color: rgb(255, 255, 255);
 }
@@ -197,7 +201,7 @@ body {
 
 
 .visitor h1 {
-color: rgb(53, 2, 62);
+    color: rgb(53, 2, 62);
 }
 
 input {
@@ -346,15 +350,17 @@ input {
     width: 250px;
 
 }
-.forgotten-top-container h2{
+
+.forgotten-top-container h2 {
     margin-top: 30px;
     color: rgb(39, 1, 45);
-    
+
 
 }
-.reset-form label{
+
+.reset-form label {
     color: #2a0238;
-   
+
 }
 
 
@@ -369,12 +375,21 @@ input {
     text-transform: uppercase;
 }
 
-.reset-password:hover{
+.reset-password:hover {
     background-color: rgb(131, 138, 172);
 }
 
 
-.reset-password:active{
+.reset-password:active {
     background-color: rgb(108, 115, 148);
     color: rgb(255, 255, 255);
+}
+
+.radio-input {
+    margin-right: 10px;
+}
+
+.task-category {
+    margin-left: 20px;
+    color: rgb(144, 128, 236);
 }

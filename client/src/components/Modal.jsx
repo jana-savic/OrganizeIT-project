@@ -4,12 +4,19 @@ import { useCookies } from "react-cookie";
 const Modal = ({ mode, setShowModal, getData, task }) => {
   const [cookies, setCookie, removeCookie] = useCookies(null)
   const editMode = mode === 'edit' ? true : false
+  const [selectedOption, setSelectedOption] = useState('');
   const [data, setData] = useState({
     user_email: editMode ? task.user_email : cookies.Email,
     title: editMode ? task.title : null,
     progress: editMode ? task.progress : 0,
-    date: editMode ? task.date : new Date()
-  })
+    date: editMode ? task.date : new Date(),
+    category: editMode ? task.category: null
+    })
+  
+
+  const handleOptionChange = (event) => {
+    setSelectedOption(event.target.value);
+  };
 
   //rad sa dugmetom add new task
 
@@ -48,7 +55,6 @@ const Modal = ({ mode, setShowModal, getData, task }) => {
         })
       console.log(response)
       if (response.status === 200) {
-        console.log('YEY WORKED')
         setShowModal(false)
         getData();
 
@@ -61,6 +67,7 @@ const Modal = ({ mode, setShowModal, getData, task }) => {
 
   const handleChange = (e) => {
 
+
     const { name, value } = e.target
 
     /* override objekta sa kojim radimo zavisno od naziva inputa */
@@ -69,7 +76,7 @@ const Modal = ({ mode, setShowModal, getData, task }) => {
       [name]: value
     }))
 
-    console.log(data)
+    // console.log(data)
   }
 
   return (
@@ -101,6 +108,51 @@ const Modal = ({ mode, setShowModal, getData, task }) => {
             value={data.progress}
             onChange={handleChange}
           />
+
+          <label>Choose category</label>
+          <label>
+            <input
+              type="radio"
+              value="WORK"
+              name='category'
+              checked={selectedOption === 'WORK'}
+              onChange={(e) => {
+                handleOptionChange(e);
+                handleChange(e);
+              }}
+              className="radio-input"
+            />
+            Work
+          </label>
+          <label>
+            <input
+              type="radio"
+              value="HOME"
+              name='category'
+              checked={selectedOption === 'HOME'}
+              onChange={(e) => {
+                handleOptionChange(e);
+                handleChange(e);
+              }}
+              className="radio-input"
+              
+            />
+            Home
+          </label>
+          <label>
+            <input
+              type="radio"
+              value="TRAVEL"
+              name='category'
+              checked={selectedOption === 'TRAVEL'}
+              onChange={(e) => {
+                handleOptionChange(e);
+                handleChange(e);
+              }}
+              className="radio-input"
+            />
+            Travel
+          </label>
           <input className={mode} type="submit" onClick={editMode ? editData : postData} />
         </form>
       </div>
