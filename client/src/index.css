@@ -400,3 +400,18 @@ input {
     border-color: rgb(160, 160, 160);
     outline: none;
 }
+
+.button-page {
+    margin-top: 10px;
+    border-radius: 5px;
+    border-color: rgb(160, 160, 160);
+    outline: none;
+    background-color: transparent;
+    margin-right: 5px;
+}
+
+.pagination-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
