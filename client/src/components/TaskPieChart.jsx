@@ -9,9 +9,9 @@ const TaskPieChart = ({ tasks }) => {
 
   // Data for the pie chart
   const data = [
-    { angle: countDone, label: `Done: ${countDone}`, color:'rgb(255,115,148)'},
-    { angle: countInProgress, label: `In Progress: ${countInProgress}`, color:'rgb(255,175,163)'},
-    { angle: countStart, label:`Start: ${countStart}`, color:'rgb(255,214,161)'},
+    { angle: countDone, label: `Done: ${countDone}`, color: 'rgb(255,115,148)' },
+    { angle: countInProgress, label: `In Progress: ${countInProgress}`, color: 'rgb(255,175,163)' },
+    { angle: countStart, label: `Start: ${countStart}`, color: 'rgb(255,214,161)' },
   ];
 
   const labelStyle = {
@@ -28,7 +28,7 @@ const TaskPieChart = ({ tasks }) => {
     height: '300px', // Set an appropriate height for your design
   };
 
-  return (
+  return tasks.length > 0 ? (
     <div style={chartStyle}>
       <RadialChart
         data={data}
@@ -36,11 +36,11 @@ const TaskPieChart = ({ tasks }) => {
         height={200}
         showLabels
         labelsStyle={labelStyle}
-        labelsRadiusMultiplier={1.2} // Adjust this multiplier for label position
+        labelsRadiusMultiplier={1.2}
         colorType="literal"
       />
     </div>
-  );
+  ) : null;
 };
 
 export default TaskPieChart;
