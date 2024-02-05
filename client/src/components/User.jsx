@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useCookies } from "react-cookie";
 import ListHeader from "../components/ListHeader";
 import ListItem from '../components/ListItem';
+import TaskPieChart from './TaskPieChart';
 
 const User = () => {
   const [tasks, setTasks] = useState(null);
@@ -66,6 +67,11 @@ const User = () => {
         <option className='combo-box-item' value="TRAVEL">TRAVEL</option>
       </select>
       {currentTasks?.map((task) => <ListItem key={task.id} task={task} getData={getData} />)}
+      {/* Pie-chart task progress */}
+      <div className="task-container">
+      {tasks && <TaskPieChart tasks={tasks} />}
+      </div>
+      
       {/* Pagination */}
       {filteredTasks && filteredTasks.length > tasksPerPage && (
         <div className="pagination-container">
@@ -76,6 +82,7 @@ const User = () => {
           ))}
         </div>
       )}
+      
     </div>
   );
 }

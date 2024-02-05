@@ -440,10 +440,18 @@ input {
     outline: none;
     background-color: transparent;
     margin-right: 5px;
+   
 }
 
 .pagination-container {
     width: 100%;
     display: flex;
     justify-content: center;
+}
+
+.task-container {
+    margin-top:-30px;
+    margin-bottom: -20px;
+
+    
 }
