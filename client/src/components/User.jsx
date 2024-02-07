@@ -59,6 +59,7 @@ const User = () => {
     <div>
       <ListHeader listName={'Your list'} getData={getData} />
       <p className="user-email">Welcome back {userEmail}</p>
+      
       {/* ComboBox */}
       <select value={selectedCategory} onChange={handleCategoryChange} className='combo-box'>
         <option className='combo-box-item' value="ALL">ALL</option>
@@ -67,22 +68,22 @@ const User = () => {
         <option className='combo-box-item' value="TRAVEL">TRAVEL</option>
       </select>
       {currentTasks?.map((task) => <ListItem key={task.id} task={task} getData={getData} />)}
+      
       {/* Pie-chart task progress */}
       <div className="task-container">
-      {tasks && <TaskPieChart tasks={tasks} />}
+        {tasks && <TaskPieChart tasks={tasks} />}
       </div>
-      
+
       {/* Pagination */}
       {filteredTasks && filteredTasks.length > tasksPerPage && (
         <div className="pagination-container">
           {Array.from({ length: Math.ceil(filteredTasks.length / tasksPerPage) }, (_, index) => (
-            <button className = "button-page" key={index} onClick={() => paginate(index + 1)}>
+            <button className="button-page" key={index} onClick={() => paginate(index + 1)}>
               {index + 1}
             </button>
           ))}
         </div>
       )}
-      
     </div>
   );
 }

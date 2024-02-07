@@ -14,7 +14,7 @@ const App = () => {
       <Routes>
         <Route exact path='/' element={authToken ? <Main /> : <Visitor />} />
         <Route path="/auth" element={authToken ? <Main /> : <Auth />} />
-        <Route path="/forgotten" element={<ForgottenPassword/>} />
+        <Route path="/forgotten" element={<ForgottenPassword />} />
       </Routes>
     </BrowserRouter>
   );

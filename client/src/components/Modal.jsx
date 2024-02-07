@@ -5,21 +5,20 @@ const Modal = ({ mode, setShowModal, getData, task }) => {
   const [cookies, setCookie, removeCookie] = useCookies(null)
   const editMode = mode === 'edit' ? true : false
   const [selectedOption, setSelectedOption] = useState('');
+  
   const [data, setData] = useState({
     user_email: editMode ? task.user_email : cookies.Email,
     title: editMode ? task.title : null,
     progress: editMode ? task.progress : 0,
     date: editMode ? task.date : new Date(),
-    category: editMode ? task.category: null
-    })
-  
+    category: editMode ? task.category : null
+  })
 
   const handleOptionChange = (event) => {
     setSelectedOption(event.target.value);
   };
 
   //rad sa dugmetom add new task
-
   const postData = async (e) => {
     e.preventDefault()
     try {
@@ -35,14 +34,12 @@ const Modal = ({ mode, setShowModal, getData, task }) => {
         setShowModal(false)
         getData();
       }
-
     } catch (err) {
       console.error(err)
     }
   };
 
-  // radjenje sa dugmetom edit
-
+  // rad sa dugmetom edit
   const editData = async (e) => {
     e.preventDefault()
     try {
@@ -51,32 +48,24 @@ const Modal = ({ mode, setShowModal, getData, task }) => {
           method: 'PUT',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(data)
-
         })
       console.log(response)
       if (response.status === 200) {
         setShowModal(false)
         getData();
-
       }
     } catch (err) {
       console.error(err);
     }
-
   }
 
   const handleChange = (e) => {
-
-
     const { name, value } = e.target
-
     /* override objekta sa kojim radimo zavisno od naziva inputa */
     setData(data => ({
       ...data,
       [name]: value
     }))
-
-    // console.log(data)
   }
 
   return (
@@ -86,7 +75,6 @@ const Modal = ({ mode, setShowModal, getData, task }) => {
           <h3>Let's {mode} your task!</h3>
           <button onClick={() => setShowModal(false)}>X</button>
         </div>
-
         <form>
           <input
             required
@@ -108,7 +96,6 @@ const Modal = ({ mode, setShowModal, getData, task }) => {
             value={data.progress}
             onChange={handleChange}
           />
-
           <label>Choose category</label>
           <label>
             <input
@@ -135,7 +122,6 @@ const Modal = ({ mode, setShowModal, getData, task }) => {
                 handleChange(e);
               }}
               className="radio-input"
-              
             />
             Home
           </label>

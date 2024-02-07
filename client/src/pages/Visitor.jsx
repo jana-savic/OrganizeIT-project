@@ -8,13 +8,11 @@ function Visitor() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  
-
   const fetchRandomQuote = async () => {
     try {
       setLoading(true);
       const response = await axios.get('https://type.fit/api/quotes');
-      const number= Math.floor(Math.random()*16)
+      const number = Math.floor(Math.random() * 16)
       const { text, author } = response.data[number];
       setQuote({ text, author });
       setLoading(false);
@@ -34,7 +32,7 @@ function Visitor() {
     <div className="visitor">
       <Link to="/auth">
         <div className="login-signup-container">
-        <button className="login-signup">Sign Up / Log In</button>
+          <button className="login-signup">Sign Up / Log In</button>
         </div>
       </Link>
       <h1>Motivational quote for you </h1>
@@ -52,7 +50,7 @@ function Visitor() {
       <div className='get-quote-container'>
         <button className='login-signup' onClick={fetchRandomQuote}>Get new quote</button>
       </div>
-       <Footer />
+      <Footer />
     </div>
   );
 }

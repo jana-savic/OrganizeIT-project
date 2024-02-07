@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useCookies } from 'react-cookie';
 import { useNavigate } from 'react-router-dom';
 
-
 const Auth = () => {
   const [cookie, setCookie] = useCookies(null)
   const [isLogIn, setIsLogIn] = useState(true)
@@ -10,7 +9,6 @@ const Auth = () => {
   const [password, setPassword] = useState(null)
   const [confirmPassword, setConfirmPassword] = useState(null)
   const [error, setError] = useState(null)
-
   const navigate = useNavigate()
 
   const viewLogIn = (status) => {
@@ -41,12 +39,10 @@ const Auth = () => {
       //uspesno logovanje nas vodi do glavne stranice, vise nije u url-u auth
       navigate("/")
     }
-    //kada posaljemo email i password u sign up modu
-    //i nama vraca kao data
   }
 
   const handleLinkClick = () => {
-    // Navigate to the desired page when the link input is clicked
+    // klikom na link ulazimo na dati url
     window.location.href = '/forgotten';
   };
 
@@ -78,8 +74,6 @@ const Auth = () => {
             {isLogIn && <input type="reset" value="Forgot password?" className="forgotten"
               onClick={handleLinkClick}
             />}
-
-
           </form>
           <div className="auth-options">
             <button
@@ -91,8 +85,6 @@ const Auth = () => {
               style={{ backgroundColor: isLogIn ? 'rgb(255,255,255)' : 'rgb(188,188,188)' }}
             >Log in</button>
           </div>
-
-
         </div>
       </div>
 

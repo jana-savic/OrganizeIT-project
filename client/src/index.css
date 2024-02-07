@@ -385,7 +385,7 @@ input {
     border: 1px solid rgb(135, 135, 135);
     border-radius: 8px;
     padding: 30px;
-    background-color: rgb(245, 233, 233) ;
+    background-color: rgb(245, 233, 233);
 }
 
 .forgotten-main {
@@ -440,7 +440,7 @@ input {
     outline: none;
     background-color: transparent;
     margin-right: 5px;
-   
+
 }
 
 .pagination-container {

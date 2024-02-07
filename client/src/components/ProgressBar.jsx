@@ -7,6 +7,7 @@ const ProgressBar = ({ progress }) => {
     'rgb(141,181,145)'
   ]
   const randomColor = colors[Math.floor(Math.random() * colors.length)]
+  
   //poziva se u List Item
   return (
     <div className="outer-bar">

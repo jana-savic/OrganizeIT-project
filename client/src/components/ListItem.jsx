@@ -10,7 +10,7 @@ const ListItem = ({ task, getData }) => {
     try {
       const response = await fetch(`http://localhost:8002/todos/${task.id}`, {
         method: 'DELETE'
-      }) // napravljen objekat za slanje methode delete  i ne treba da handle-ujemo json jer ga nigde ne saljemo
+      })
       if (response.status === 200) {
         getData();
       }
@@ -18,7 +18,6 @@ const ListItem = ({ task, getData }) => {
       console.error(err)
     }
   }
-  // console.log(task)
 
   return (
     <li className="list-item">
@@ -26,7 +25,7 @@ const ListItem = ({ task, getData }) => {
         <TickIcon />
         <p className="task-title">{task.title}</p>
         <ProgressBar progress={task.progress} />
-        <p className = "task-category">{task.category}</p>
+        <p className="task-category">{task.category}</p>
       </div>
       <div className="button-container">
         <button className="edit" onClick={() => setShowModal(true)}>EDIT</button>

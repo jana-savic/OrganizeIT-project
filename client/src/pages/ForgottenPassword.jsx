@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-const PasswordReset = () => {
+const ForgottenPassword = () => {
   const [email, setEmail] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -21,14 +21,11 @@ const PasswordReset = () => {
 
   const handleResetPassword = async () => {
     try {
-      // Validate email, newPassword, and confirmPassword here
-
       if (newPassword !== confirmPassword) {
         setMessage("Passwords don't match");
         return;
       }
 
-      // Call your backend API to reset the password
       const response = await fetch(`http://localhost:8002/users/${email}`, {
         method: 'POST',
         headers: {
@@ -77,9 +74,8 @@ const PasswordReset = () => {
         <button className="reset-password" onClick={handleResetPassword}>Reset Password</button>
         <br />
       </div>
-
     </div>
   );
 };
 
-export default PasswordReset;
+export default ForgottenPassword;

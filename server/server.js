@@ -7,11 +7,6 @@ const app = express()
 const pool = require('./db')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-
-/* app.get('/', (req,res) => {
-    res.send('hellooo!')
-})*/
-
 app.use(cors())
 app.use(express.json())
 
@@ -42,12 +37,12 @@ app.get('/users/:userEmail', async (req, res) => {
 })
 
 // get all users from db
-app.get( '/users' , async (req, res) => {
+app.get('/users', async (req, res) => {
     const { userRole } = req.params
     try {
         const allUsers = await pool.query('SELECT * FROM users WHERE role =$1', ['USER'])
         res.json(allUsers.rows)
-        
+
 
     } catch (err) {
         console.error(err)
@@ -74,11 +69,11 @@ app.put('/todos/:id', async (req, res) => {
     const { id } = req.params
     const { user_email, title, progress, date, category } = req.body
     try {
- await pool.query('UPDATE todos SET user_email =$1, title =$2, progress =$3, date =$4, category = $5 WHERE id = $6;', [user_email, title, progress, date, category, id])
-       
- const editToDo = await pool.query('SELECT * FROM todos WHERE id=$1' , [id])
+        await pool.query('UPDATE todos SET user_email =$1, title =$2, progress =$3, date =$4, category = $5 WHERE id = $6;', [user_email, title, progress, date, category, id])
 
- res.json(editToDo.rows[0])
+        const editToDo = await pool.query('SELECT * FROM todos WHERE id=$1', [id])
+
+        res.json(editToDo.rows[0])
     } catch (err) {
         console.error(err)
     }
@@ -96,7 +91,7 @@ app.delete('/todos/:id', async (req, res) => {
     }
 })
 
-//signup post jer upisujemo 
+//signup
 app.post('/signup', async (req, res) => {
     const { email, password } = req.body
     //hash the password
@@ -107,7 +102,7 @@ app.post('/signup', async (req, res) => {
         const signUp = await pool.query(`INSERT INTO users (email,hashed_password, role) VALUES ($1,$2, 'USER')`, [email, hashedPassword])
         const token = jwt.sign({ email }, 'secret', { expiresIn: '1hr' })
         //kada se registruje, po defaultu je user tako da saljemo kao string
-        res.json({ email, token, role: 'USER'}) 
+        res.json({ email, token, role: 'USER' })
 
     } catch (err) {
         console.error(err)
@@ -141,31 +136,30 @@ app.post('/login', async (req, res) => {
 
 //Change password
 app.post('/users/:email', async (req, res) => {
-    const email= req.params.email;
+    const email = req.params.email;
     const { newPassword } = req.body;
-  
+
     try {
-      // Check if the token is valid
-      const user = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
-  
-      if (!user.rows.length) {
-        return res.status(400).json({ error: 'Invalid email' });
-      }
-      console.log(newPassword + "1. put");
-      // Update the user's password and clear the reset token
-      const salt = bcrypt.genSaltSync(10);
-      const hashedPassword = bcrypt.hashSync(newPassword, salt);
-  
-      await pool.query('UPDATE users SET hashed_password = $1 WHERE email= $2', [hashedPassword, email]);
-  
-      console.log(newPassword);
-      return res.json({ message: 'Password reset successfully' });
+        const user = await pool.query('SELECT * FROM users WHERE email = $1', [email]);
+
+        if (!user.rows.length) {
+            return res.status(400).json({ error: 'Invalid email' });
+        }
+        console.log(newPassword + "1. put");
+        //promena pass-a
+        const salt = bcrypt.genSaltSync(10);
+        const hashedPassword = bcrypt.hashSync(newPassword, salt);
+
+        await pool.query('UPDATE users SET hashed_password = $1 WHERE email= $2', [hashedPassword, email]);
+
+        console.log(newPassword);
+        return res.json({ message: 'Password reset successfully' });
 
     } catch (error) {
-      console.error('Error completing password reset:', error);
-      res.status(500).json({ error: 'Internal server error' });
+        console.error('Error completing password reset:', error);
+        res.status(500).json({ error: 'Internal server error' });
     }
-  });
+});
 
 
 app.listen(PORT, () => console.log('Server running on PORT ' + PORT))

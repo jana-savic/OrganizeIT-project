@@ -2,12 +2,11 @@ import React from 'react';
 import { RadialChart } from 'react-vis';
 
 const TaskPieChart = ({ tasks }) => {
-  // Count tasks in different progress categories
+  // broj taskova po kategoriji
   const countDone = tasks.filter(task => task.progress === 100).length;
   const countInProgress = tasks.filter(task => task.progress >= 20 && task.progress < 100).length;
   const countStart = tasks.filter(task => task.progress >= 0 && task.progress < 20).length;
 
-  // Data for the pie chart
   const data = [
     { angle: countDone, label: `Done: ${countDone}`, color: 'rgb(255,115,148)' },
     { angle: countInProgress, label: `In Progress: ${countInProgress}`, color: 'rgb(255,175,163)' },
@@ -20,12 +19,12 @@ const TaskPieChart = ({ tasks }) => {
     textAlign: 'center',
   };
 
-  // Center the chart
+  //style
   const chartStyle = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    height: '300px', // Set an appropriate height for your design
+    height: '300px'
   };
 
   return tasks.length > 0 ? (
